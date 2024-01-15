@@ -1,35 +1,22 @@
-// Función para generar un color aleatorio entre 0 y 255
-function generarColor() {
-    return Math.floor(Math.random() * 256);
+// Obtén todas las etiquetas h5
+const etiquetasH5 = document.querySelectorAll('h5');
+
+// Función para generar un color aleatorio (verde, azul o rojo)
+function generarColorAleatorio() {
+  const colores = ['green', 'blue', 'red'];
+  const indiceAleatorio = Math.floor(Math.random() * colores.length);
+  return colores[indiceAleatorio];
 }
 
-// Función para aplicar 3 colores aleatorios (verde, azul, rojo) a una etiqueta
-function aplicarColoresAleatorios(elemento) {
-    // Selecciona aleatoriamente entre verde, azul y rojo
-    const colores = ['verde', 'azul', 'rojo'];
-    const colorSeleccionado = colores[Math.floor(Math.random() * colores.length)];
-
-    // Asigna el color correspondiente a la etiqueta HTML
-    switch (colorSeleccionado) {
-        case 'verde':
-            elemento.style.color = rgb(0, ${generarColor()}, 0);
-            break;
-        case 'azul':
-            elemento.style.color = rgb(0, 0, ${generarColor()});
-            break;
-        case 'rojo':
-            elemento.style.color = rgb(${generarColor()}, 0, 0);
-            break;
-        default:
-            break;
-    }
+// Función para aplicar los colores aleatorios cuando se hace clic en una etiqueta h5
+function aplicarColoresAleatorios() {
+  const colorAleatorio = generarColorAleatorio();
+  etiquetasH5.forEach((etiqueta) => {
+    etiqueta.style.color = colorAleatorio;
+  });
 }
 
-// Asignar evento de clic a todas las etiquetas h3
-const h3Elements = document.querySelectorAll('h5');
-h3Elements.forEach(function (element) {
-    element.addEventListener('click', function() {
-        aplicarColoresAleatorios(element);
-        element.style.cursor = 'pointer';
-    });
+// Asigna el evento de clic a todas las etiquetas h5
+etiquetasH5.forEach((etiqueta) => {
+  etiqueta.addEventListener('click', aplicarColoresAleatorios);
 });
