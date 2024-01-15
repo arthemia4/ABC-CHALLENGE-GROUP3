@@ -16,13 +16,13 @@ html {
 }
 
 body {
-  background-color: lightgray;
+  background-color: gray;
  font-family: Vegur, 'PT Sans', Verdana, sans-serif;
 
   margin: 0;
 }
 h3{
-color:darkgreen
+color:green
 }
 .azul {
 color:blue
